@@ -5,6 +5,7 @@
         Background="Gray"
         ResizeMode="NoResize"
         FontSize="15"
+        FontFamily="Comic Sans MS"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoClickerKK1125"
         mc:Ignorable="d"
@@ -28,13 +29,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <!--Все кнопочки, которые нужны-->
-        <Button Content="Start" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4" Click="StartClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown">
+        <Button Content="Start" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4" Click="StartClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown" Background="DarkGreen" FontSize="29">
             <Button.InputBindings>
                 <KeyBinding Key="o" Command="{Binding MyCommand}" />
             </Button.InputBindings>
         </Button>
-        <Button Content="Stop" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4" Click="StopClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown">
+
+        <Button Content="Stop" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4" Click="StopClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown" Background="DarkRed" FontSize="30">
             <Button.InputBindings>
                 <KeyBinding Key="p" Command="{Binding MyCommand}" />
             </Button.InputBindings>
@@ -43,10 +46,12 @@
 
         <!--Текст, который надо будет вводить-->
         <TextBox Text="Введите количество кликов" x:Name="Amount" ToolTip="Введите количество кликов" Mouse.PreviewMouseDown="TextBox_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Height="80"/>
-        <TextBox Text="Введите время в МС" x:Name="TimeInSeconds" ToolTip="Введите время в МС"  Mouse.PreviewMouseDown="TextBox_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="4" TextWrapping="Wrap" Height="80"/>
+        <TextBox Text="Введите время в МС" x:Name="TimeInSeconds" ToolTip="Введите время в МС"  Mouse.PreviewMouseDown="TextBox_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="4" TextWrapping="Wrap" Height="80" FontSize="18"/>
 
+        <!--Текст, который будет записан заранее-->
+        <Label Content="AutoClickerBeta 1.1" Grid.ColumnSpan="7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="29"/>
+        <Label Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" Content="Клики" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="21"/>
+        <Label Grid.ColumnSpan="4" Grid.Column="3" Grid.Row="2" Content="Миллисекунды" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="19"/>
 
-        <!--Текст, который будет записан заранее
-        <Label Content="Количество кликов:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>-->
     </Grid>
 </Window>
