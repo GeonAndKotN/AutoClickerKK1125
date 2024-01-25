@@ -27,26 +27,26 @@ namespace AutoClickerKK1125
         {
             InitializeComponent();
         }
+        public string MyCommand;
         static int am;
         static int ms;
-
         private void Znachenia()
         {
             am = Int32.Parse(Amount.Text);
-            ms = Int32.Parse(TimeInSeconds.Text); 
+            ms = Int32.Parse(TimeInSeconds.Text);
         }
         Thread thread;
-
         private void StartClick(object sender, RoutedEventArgs e)
         {
             Znachenia();
-          thread = new Thread( Anotherthread);
+            thread = new Thread(Anotherthread);
             thread.Start();
         }
 
         private void Anotherthread()
         {
             InputSimulator simulator = new InputSimulator();
+            Thread.Sleep(3000);
             for (int i = 0; i < am; i++)
             {
                 simulator.Mouse.LeftButtonClick();
@@ -64,6 +64,18 @@ namespace AutoClickerKK1125
             TextBox textBox = sender as TextBox;
             if (textBox.Text == textBox.ToolTip.ToString())
                 textBox.Text = null;
+        }
+
+        private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.O)
+            {
+                StartClick(sender, e);
+            }
+            if (e.Key == Key.P)
+            {
+                StopClick(sender, e);
+            }
         }
     }
 }

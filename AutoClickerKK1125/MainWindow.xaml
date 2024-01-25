@@ -28,17 +28,24 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
         <!--Все кнопочки, которые нужны-->
-        <Button Content="Start" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4" Click="StartClick"/>
-        <Button Content="Stop" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4" Click="StopClick"/>
-        
-        
+        <Button Content="Start" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4" Click="StartClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown">
+            <Button.InputBindings>
+                <KeyBinding Key="o" Command="{Binding MyCommand}" />
+            </Button.InputBindings>
+        </Button>
+        <Button Content="Stop" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="4" Click="StopClick" Command="{Binding MyCommand}" Keyboard.PreviewKeyDown="Button_PreviewKeyDown">
+            <Button.InputBindings>
+                <KeyBinding Key="p" Command="{Binding MyCommand}" />
+            </Button.InputBindings>
+        </Button>
+
+
         <!--Текст, который надо будет вводить-->
         <TextBox Text="Введите количество кликов" x:Name="Amount" ToolTip="Введите количество кликов" Mouse.PreviewMouseDown="TextBox_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Height="80"/>
         <TextBox Text="Введите время в МС" x:Name="TimeInSeconds" ToolTip="Введите время в МС"  Mouse.PreviewMouseDown="TextBox_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="4" TextWrapping="Wrap" Height="80"/>
-        
-        
+
+
         <!--Текст, который будет записан заранее
         <Label Content="Количество кликов:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center"/>-->
     </Grid>
